@@ -21,6 +21,7 @@ import 'package:polls/variables.dart';
 import 'package:polls/wallet.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
+import 'AppConfig.dart';
 import 'MySharedPreferences.dart';
 import 'components/navigation.dart';
 import 'components/outline.dart';
@@ -38,12 +39,16 @@ import 'models/usercard.dart';
 Object myQz = {};
 List<Question> qs = [];
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  // load our config
+  //final config = await AppConfig.forEnvironment(env);
+
+  // pass our config to our app
+  runApp(MyApp("--no-sound-null-safety"));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp(String s, {Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override

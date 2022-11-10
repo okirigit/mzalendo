@@ -37,26 +37,25 @@ dependencies:
   cool_stepper: ^1.2.1
   image_picker: ^0.8.5+3
   velocity_x: ^3.4.0
-  awesome_dialog: ^2.2.1
+  awesome_dialog: ^3.0.2
   shared_preferences: ^2.0.13
   provider: ^6.0.2
   group_radio_button: ^1.2.0
   http: ^0.13.4
   flutter_settings_ui: ^2.0.1
-  font_awesome_flutter: ^9.0.0
-  firebase_core: ^1.19.2
-  firebase_database: ^9.0.19
+  font_awesome_flutter: ^10.2.1
+  firebase_database: ^10.0.4
   pull_to_refresh: ^2.0.0
-  google_fonts: ^2.3.2
+  google_fonts: ^3.0.1
   google_sign_in: ^5.4.2
   google_maps_flutter: ^2.1.5
   location: ^4.2.0
-  firebase_storage: ^10.3.3
+  firebase_storage: ^11.0.4
   path_provider: ^2.0.11
-  mongo_dart: ^0.7.4+1
-  firebase_auth: ^3.7.0
+  mongo_dart: ^0.8.0
+  firebase_auth: ^4.1.1
   tutorial_coach_mark: ^1.2.4
-  awesome_notifications: ^0.6.21
+  awesome_notifications: ^0.7.4+1
   responsive_framework: ^0.2.0
   google_maps_flutter_web: ^0.4.0+3
   geofence_service: ^3.5.0
@@ -66,13 +65,14 @@ dependencies:
   collapsible_sidebar: ^2.0.3+2
   geocoding: ^2.0.5
   social_login_buttons: ^1.0.7
+  firebase_core: ^2.1.1
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
 
 
 flutter:
@@ -82,6 +82,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/config/
 
 
 
