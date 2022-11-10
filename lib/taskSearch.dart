@@ -161,9 +161,7 @@ myTasks_.add(Task(amount:data[key]['amount'],type:"Tasks",title:data[key]['title
               onLoading: _onLoading,
 
               child: Scaffold(
-                  appBar: AppBar(
-                    title: Text(widget.title + " Tasks"),
-                  ),
+
 
 
                   body: SingleChildScrollView(

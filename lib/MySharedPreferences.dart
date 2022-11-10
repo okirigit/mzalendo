@@ -21,6 +21,7 @@ class MySharedPreferences {
 
   Future<String> getStringValue(String key) async {
     SharedPreferences myPrefs = await SharedPreferences.getInstance();
+    print(myPrefs.getString(key));
     return myPrefs.getString(key) ?? "";
   }
 

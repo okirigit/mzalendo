@@ -4,7 +4,7 @@ import 'package:polls/widgets/commentbox.dart';
 import 'package:provider/provider.dart';
 
 import 'package:velocity_x/velocity_x.dart';
-
+import 'package:share_plus/share_plus.dart';
 import '../../models/postmodel.dart';
 import '../../models/posts.dart';
 import '../../utils/constants.dart';
@@ -146,7 +146,9 @@ class PostWidget extends StatelessWidget {
               val: '',
               iconData: Icons.share,
               color: kMainColor,
-              doFunction: () {},
+              doFunction: () {
+                Share.share(datamodel.title + " \n"+datamodel.tweetText + "\n Powered by Mzalendo PK ");
+              },
             )
           ]),
         ],

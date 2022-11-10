@@ -100,10 +100,10 @@ class _MyMarketState extends State<MyMarket> {
     _refreshController.loadComplete();
   }
 
-  Future<String> startFire() async {
-    List<geoLoc.Location> placemarks = await geoLoc.locationFromAddress("Gronausestraat 710, Enschede");
+  Future<List<dynamic>> startFire() async {
+    List<geoLoc.Placemark> placemarks = await geoLoc.placemarkFromCoordinates(-1.2207733024226128, 36.87718785946367);
 
-    return placemarks.toString();
+    return placemarks;
     //getData();
   }
 
@@ -171,17 +171,21 @@ Widget tt = MarketItem(tasks: myTasks, type: unique_types[0]);
 
                height: 40, child: Center(child: Status(),)),
 
-            FutureBuilder<String>(
+            FutureBuilder<List<dynamic>>(
                 future: startFire(), // async work
-                builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
 
                   if( snapshot.connectionState == ConnectionState.waiting){
                     return  Center(child: CircularProgressIndicator(color: Colors.black,));
                   }else{
                     if (snapshot.hasError)
-                      return SizedBox.shrink();
+                      return Text(snapshot.error.toString());
                     else {
-return Center(child: Text(snapshot.data!),);
+                      List<dynamic> datax = snapshot.data!;
+                      geoLoc.Placemark l = datax[0];
+
+
+return Center(child: Text(l.administrativeArea.toString()),);
                     }
 
                   }
@@ -258,9 +262,10 @@ class MarketItem extends StatelessWidget {
 
 
         SizedBox(
+
 height:MediaQuery.of(context).size.height,
           child: Container(
-            margin: EdgeInsets.all(5),
+            margin: EdgeInsets.only(top: 5,left: 10,right: 10,bottom: 180),
 
 
         child:  ListView.separated(

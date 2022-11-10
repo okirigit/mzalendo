@@ -56,13 +56,14 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
       title: 'Mzalendo PK',
       theme: ThemeData(
         // This is the theme of your application.
         //
 
 
-        primarySwatch: white,
+        primarySwatch: Colors.blueGrey,
       ),
       home: const MyHomePage(title: 0),
     );
@@ -135,18 +136,8 @@ final TextEditingController search_controller =  TextEditingController();
 
   @override
   void initState()  {
-    //getTasks();
-    String uid;
-    MySharedPreferences.instance.getStringValue("introduced").then((value){
-      uid = value;
-      super.initState();
-      if(uid == ""){
-        createTutorial(context,targets,"introduced");
 
-       // Future.delayed(Duration.zero, showTutorial(context));
 
-      }
-    });
 
 
   }
@@ -191,26 +182,6 @@ main = widg;
   @override
   Widget build(BuildContext context) {
     getQuestions(screens[widget.title]);
-
-
-    if (logged == false) {
-      MySharedPreferences.instance.getStringValue('email').then((value) {
-        print(value);
-        email = value;
-        print("here is your email");
-        logged = true;
-        if (value != '') {
-          MySharedPreferences.instance.getStringValue('userId').then((value) {
-            userId = value;
-            MySharedPreferences.instance.getStringValue('name').then((value) {
-              name = value;
-            });
-          });
-        } else {
-          _handleSignIn(context, getQuestions);
-        }
-      });
-    }
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -382,7 +353,7 @@ title: MediaQuery.of(context).size.width > 992 ? BottomNavigationBar(
                 ) : SizedBox.shrink(),
 
                 Container(
-                  margin: EdgeInsets.only(left: 10 , top: 30),
+                  margin: EdgeInsets.only(left: 10 , top: MediaQuery.of(context).size.width > 992 ? 30 : 5),
 
                   width:MediaQuery.of(context).size.width > 992 ? MediaQuery.of(context).size.width * 0.4 : MediaQuery.of(context).size.width * 0.95,
 
@@ -633,20 +604,6 @@ Future<void> _signIn(BuildContext context,getQuestions) async {
   ));
 
 
-}
-Future<void> _handleSignIn(BuildContext context,getQuestions) async {
-  try {
-    await _ensureInitialized();
-
-
-    _setUser(await GoogleSignInPlatform.instance.signIn(),context,getQuestions);
-  } catch (error) {
-    final bool canceled =
-        error is PlatformException && error.code == 'sign_in_canceled';
-    if (!canceled) {
-      print(error);
-    }
-  }
 }
 
 

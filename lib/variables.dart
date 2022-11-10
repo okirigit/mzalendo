@@ -300,6 +300,13 @@ bool logged = false;
 String email = "";
 String name = "Guest";
 String userId =  "";
+
+Future getuser() async{
+  name = await MySharedPreferences.instance.getStringValue("name");
+
+  email = await MySharedPreferences.instance.getStringValue("email");
+  userId = await MySharedPreferences.instance.getStringValue("userId");
+}
 String baseUrl = "https://data-pal.herokuapp.com";
 var listViewPadding =
 const EdgeInsets.symmetric(horizontal: 16, vertical: 24);

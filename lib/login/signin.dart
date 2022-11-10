@@ -11,164 +11,184 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController email = TextEditingController();
+    TextEditingController pass = TextEditingController();
+
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: SingleChildScrollView(
-            child: Column(
-              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Image.asset(
-                  '/main_icon.png',
-                  color: kMainColor,
-                  scale: 3.5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
-                  child: 'Log in to your Account'
-                      .text
-                      .minFontSize(24)
-                      .fontWeight(FontWeight.w600)
-                      .maxFontSize(26)
-                      .make(),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15.0),
-                  child: 'Welcome back, please enter your details'
-                      .text
-                      .minFontSize(18)
-                      .make(),
-                ),
-                InkWell(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 15,
-                    ),
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                          color: kMainColor,
-                        ),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          '/search.png',
-                          scale: 20,
-                        ),
-                        const SizedBox(
-                          width: 30,
-                        ),
-                        'Continue with Google'.text.minFontSize(18).make()
-                      ],
-                    ),
+      appBar: AppBar(title:Text("Login ")),
+
+      body: Container(
+
+        padding: const EdgeInsets.symmetric(horizontal: 25),
+
+        child: SingleChildScrollView(
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset(
+                'assets/main_icon.png',
+                color: kMainColor,
+                scale: 3.5,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                child: 'Log in to your Account'
+                    .text
+                    .minFontSize(24)
+                    .fontWeight(FontWeight.w600)
+                    .maxFontSize(26)
+                    .make(),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                child: 'Welcome back, please enter your details'
+                    .text
+                    .minFontSize(18)
+                    .make(),
+              ),
+              InkWell(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 15,
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        color: kMainColor,
+                      ),
+                      borderRadius: BorderRadius.circular(5)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Expanded(
-                        child: Divider(
-                          color: Colors.black54,
-                          //thickness: 1.0,
-                        ),
+                      Image.asset(
+                        'assets/search.png',
+                        scale: 20,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8.0, vertical: 5),
-                        child: 'OR'.text.make(),
+                      const SizedBox(
+                        width: 30,
                       ),
-                      const Expanded(
-                        child: Divider(
-                          color: Colors.black54,
-                          //thickness: 1.0,
-                        ),
-                      ),
+                      'Continue with Google'.text.minFontSize(18).make()
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                CustomInput(
-                  title: 'Email Address',
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                CustomInput(
-                  title: 'Password',
-                  isPassword: true,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          const CheckBoxx(),
-                          'Remember Me'.text.make(),
-                        ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Expanded(
+                      child: Divider(
+                        color: Colors.black54,
+                        //thickness: 1.0,
                       ),
-                      InkWell(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 10.0),
-                          child: 'Forgot Password?'
-                              .text
-                              .fontWeight(FontWeight.w600)
-                              .make(),
-                        ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8.0, vertical: 5),
+                      child: 'OR'.text.make(),
+                    ),
+                    const Expanded(
+                      child: Divider(
+                        color: Colors.black54,
+                        //thickness: 1.0,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                ElevatedButton(
-                  onPressed: () {
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomInput(
+                title: 'Email Address',
+                tc: email,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomInput(
+                title: 'Password',
+                isPassword: true,
+                tc: pass,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        const CheckBoxx(),
+                        'Remember Me'.text.make(),
+                      ],
+                    ),
+                    InkWell(
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 10.0),
+                        child: 'Forgot Password?'
+                            .text
+                            .fontWeight(FontWeight.w600)
+                            .make(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.blue
+                ),
+              child:
+              ElevatedButton(
 
-                  },
-                  child: Center(
-                    child: Padding(
+                onPressed: () {
+                  String e = email.text.toString();
+                  String p = pass.text.toString();
+
+                  print(e);
+                  print(p);
+                },
+                child: Center(
+
+                    child:Padding(
                       padding: const EdgeInsets.all(18.0),
                       child: 'Log in'
                           .text
                           .minFontSize(18)
                           .fontWeight(FontWeight.w600)
                           .make(),
+                    )
+                ),
+              ),
+
+        ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 25.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    'Don\'t have an account?'.text.minFontSize(16).make(),
+                    const SizedBox(
+                      width: 5,
                     ),
-                  ),
+                    InkWell(
+                      onTap: (){},
+                      child: 'Sign Up'
+                          .text
+                          .fontWeight(FontWeight.w500)
+                          .minFontSize(16)
+                          .color(
+                        const Color.fromARGB(255, 8, 12, 236),
+                      )
+                          .make(),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 25.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      'Don\'t have an account?'.text.minFontSize(16).make(),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      InkWell(
-                        onTap: (){},
-                        child: 'Sign Up'
-                            .text
-                            .fontWeight(FontWeight.w500)
-                            .minFontSize(16)
-                            .color(
-                              const Color.fromARGB(255, 8, 12, 236),
-                            )
-                            .make(),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-      ),
+      )
     );
   }
 }

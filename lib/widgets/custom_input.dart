@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CustomInput extends StatelessWidget {
-  CustomInput({Key? key, required this.title, this.isPassword = false})
+  CustomInput({Key? key, required this.title, required this.tc, this.isPassword = false})
       : super(key: key);
   bool isPassword;
   String title;
+  TextEditingController tc;
   @override
   Widget build(BuildContext context) {
     return Column(
