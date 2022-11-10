@@ -342,7 +342,7 @@ title: MediaQuery.of(context).size.width > 992 ? BottomNavigationBar(
                           const ListTile(
                             leading: Icon(Icons.album),
                             title: Text('Interesting Topics'),
-                            subtitle: Text('Find tasks near you and contribute more'),
+                            subtitle: Text('Find tasks around you and contribute more'),
                           ),
                           Column(children: [
 
