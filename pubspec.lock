@@ -321,13 +321,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.7"
-  flutter_profile_card:
-    dependency: "direct main"
-    description:
-      name: flutter_profile_card
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.1"
   flutter_settings_ui:
     dependency: "direct main"
     description:
