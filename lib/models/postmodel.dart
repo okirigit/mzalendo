@@ -9,18 +9,45 @@ class PostModel {
       name: 'Anonymous',
       bio: 'Patriotic',
       profileImage:
-          'https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80',
+          'https://mzalendopk.herokuapp.com/images/logo.png',
       bannerImage:
           'https://c4.wallpaperflare.com/wallpaper/256/820/44/dreams-failure-motivational-inspirational-wallpaper-preview.jpg');
   String tweetText = '';
   String? tweetImage;
+  List<dynamic> images = [];
   List<String> likes = [];
-  List<String> comments = [];
+  Map<String,dynamic> commentsParent = {};
   List<String> retweets = [];
+  List<String> comments = [];
+
   String? uploadTime;
   String? id;
   String? location;
   String? category;
   String? date;
 
-}
+  PostModel.fromJson(Map json) {
+    print(json["Comments"]);
+
+    List<dynamic> ims = json['images'];
+    String dd = json['date'].toString().substring(0,10);
+    id = json['_id'];
+    title = json['category'] ;
+    category = json['category'] ;
+    tweetText = json['report'];
+    date = dd;
+
+    uploadTime= dd;
+    location =  title + " in "+json['locationName'];
+    tweetImage = ims.isNotEmpty ? json['images'][0] : '';
+    images = json['images'];
+    commentsParent = json['Comments'];
+    if(commentsParent != null ){
+      commentsParent.forEach((index,value) {
+        comments.add(value['comment']);
+      });
+    }
+    }
+
+  }
+

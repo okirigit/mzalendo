@@ -27,12 +27,12 @@ class PostsProvider with ChangeNotifier {
   }
 
   void addCommenttoPost(index, comment) {
-    _postList[index].comments.add(comment);
+  //  _postList[index].comments?.add(comment);
     notifyListeners();
   }
 
   void addLiketoPost(index, manwholikes) {
-    _postList[index].likes.add(manwholikes);
+  //  _postList[index].likes?.add(manwholikes);
     notifyListeners();
   }
 }

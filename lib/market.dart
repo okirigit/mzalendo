@@ -71,7 +71,7 @@ class _MyMarketState extends State<MyMarket> {
 
   Future  getData(getQuestions) async {
 
-    Uri ur = Uri.parse("http://www.task.mzalendopk.com/appReports");
+    Uri ur = Uri.parse("https://mzalendopk.herokuapp.com/appReports");
 
     const url_ = "mongodb+srv://mzalendopk:mzalendo2022@cluster0.u3y6lwf.mongodb.net/test";
 
@@ -138,17 +138,7 @@ if(fetched == false){
         String dd = value['date'].toString().substring(0,10);
         List<dynamic> ims = value['images'];
         task_type.add(value['category']);
-        PostModel md = PostModel();
-        md.id = value['_id'];
-        md.title = value['category'] ;
-        md.category = value['category'] ;
-        md.tweetText = value['report'];
-        md.date = "Posted on " +dd;
-        md.likes = ["Amin","f","dfdf","Dfdf"];
-        md.comments = ["Amin","f","dfdf","Dfdf"];
-        md.uploadTime= value['date'];
-        md.location =  md.title + " in "+value['locationName'];
-        md.tweetImage = ims.isNotEmpty ? value['images'][0] : '';
+        PostModel md = PostModel.fromJson(value);
 
 
 

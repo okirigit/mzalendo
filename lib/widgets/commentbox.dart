@@ -15,8 +15,9 @@ class CommentBox extends StatelessWidget {
     return Row(
       children: [
         Container(
+          width: MediaQuery.of(context).size.width * 0.9,
             decoration: BoxDecoration(
-              color: kMainColor,
+              color: Colors.blueGrey,
               borderRadius: BorderRadius.circular(8),
             ),
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -51,13 +52,13 @@ class CommentBox extends StatelessWidget {
                       width: 5,
                     ),
                     FittedBox(
-                      child: msg.text
+                      child:msg != null ? msg.text
                           .align(TextAlign.start)
                           .color(Colors.white)
                           .fontWeight(FontWeight.w400)
                           .minFontSize(14)
                           .maxFontSize(16)
-                          .make(),
+                          .make() : SizedBox.shrink(),
                     ),
                   ],
                 ),

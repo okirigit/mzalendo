@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:polls/widgets/commentbox.dart';
@@ -112,7 +113,7 @@ class PostWidget extends StatelessWidget {
           ),
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             SpecialIcon(
-              val: datamodel.comments.length.toString(),
+              val:datamodel.comments != null ? datamodel.comments.length.toString() : "0",
               iconData: Icons.comment_outlined,
               color: kMainColor,
               doFunction: () {
@@ -126,12 +127,7 @@ class PostWidget extends StatelessWidget {
                 // Get.toNamed('/commentspage', arguments: index);
               },
             ),
-            SpecialIcon(
-              val: datamodel.retweets.length.toString(),
-              iconData: Icons.repeat,
-              color: kmainColor,
-              doFunction: () {},
-            ),
+
             SpecialIcon(
               val: datamodel.likes.length.toString(),
               iconData: datamodel.likes.isEmpty
@@ -139,7 +135,9 @@ class PostWidget extends StatelessWidget {
                   : Icons.favorite,
               color: datamodel.likes.isEmpty ? kMainColor : kMainColor,
               doFunction: () {
+                AwesomeDialog( dialogType: DialogType.success, context: context,title: "Success",body: Center(child: const Text("Like added successfully"),)
 
+                ).show();
               },
             ),
             SpecialIcon(
