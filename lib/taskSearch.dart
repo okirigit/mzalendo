@@ -59,7 +59,7 @@ class _MyMarketState extends State<TaskSearch> {
 
   Future  getData(getQuestions) async {
 
-    Uri ur = Uri.parse("https://data-pal.herokuapp.com/getFeed?userId=$userId");
+    Uri ur = Uri.parse("https://mzalendopk.herokuapp.com/getFeed?userId=$userId");
     const url_ = "mongodb+srv://mzalendopk:mzalendo2022@cluster0.u3y6lwf.mongodb.net/test";
 
     if(fetched == false ) {

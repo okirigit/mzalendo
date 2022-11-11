@@ -323,27 +323,15 @@ title: MediaQuery.of(context).size.width > 992 ? BottomNavigationBar(
                           Column(children: [
 
 
-                            Container(
-                              width: double.infinity,
-                              height: 200,
-                              decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.8),
-                                borderRadius: BorderRadius.circular(11.0),
-                                image: DecorationImage(
-                                  image: NetworkImage("http://www.task.mzalendopk.com/images/community.jpg"),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: Text('Creating safer \n Communities',
-                                  style: TextStyle(fontFamily: "RozhaOne",fontSize: 30,fontWeight: FontWeight.w700,color: Colors.white),
-                                  textAlign: TextAlign.center,),
-
-
-                              ),
-                              //padding: <-- Using to shift text position a little bit for your requirement
-                            ),
+                          ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/cat.jpg',
+                      width: 110.0,
+                      height: 110.0,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
 
                           ],)
                         ],
